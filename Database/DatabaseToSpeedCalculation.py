@@ -15,8 +15,10 @@ CAR_TWO_SPEED_ROW = 2
 CAR_TWO_SPEED_COLUMN = 5
 
 # Car Parameters
+firstEntry1 = True
 carOneRow = 2
 CAR_ONE_COLUMN = 1
+firstEntry2 = False
 carTwoRow = 2
 CAR_TWO_COLUMN = 4
 
@@ -32,16 +34,12 @@ DISTANCE = 0.0254
 
 sheet = client.open("Database").get_worksheet(sheet_index)
 
-if sheet.cell(carOneRow, CAR_ONE_COLUMN).value != "":
-    startTime1 = time.time()
-
-if sheet.cell(carTwoRow, CAR_TWO_COLUMN).value != "":
-    startTime2 = time.time()
-
 while continue_reading:
 
     # Detects changes and updates speed value for Car One
-    if sheet.cell(carOneRow, CAR_ONE_COLUMN).value != "":
+    if sheet.cell(carOneRow, CAR_ONE_COLUMN).value != "" and firstEntry1:
+        startTime1 = time.time()
+    elif sheet.cell(carOneRow, CAR_ONE_COLUMN).value != "":
         endTime1 = time.time()
         timeDif1 = endTime1 - startTime1
 
@@ -53,7 +51,9 @@ while continue_reading:
         carOneRow += 1
 
     # Detects changes and updates speed value for Car Two
-    if sheet.cell(carTwoRow, CAR_TWO_COLUMN).value != "":
+    if sheet.cell(carTwoRow, CAR_TWO_COLUMN).value != "" and firstEntry2:
+        startTime2 = time.time()
+    elif sheet.cell(carTwoRow, CAR_TWO_COLUMN).value != "":
         endTime2 = time.time()
         timeDif2 = endTime2 - startTime2
         sheet.update_cell(CAR_TWO_SPEED_ROW, CAR_TWO_SPEED_COLUMN, DISTANCE / timeDif2)
