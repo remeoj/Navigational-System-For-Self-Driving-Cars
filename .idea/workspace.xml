@@ -187,7 +187,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Database/spreadsheet.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -202,7 +202,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rc_driver">
+  <component name="RunManager" selected="Python.stream_server_test">
     <configuration name="collect_training_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Navi1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -331,10 +331,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stream_server_test" />
         <item itemvalue="Python.rc_driver" />
         <item itemvalue="Python.model_training" />
         <item itemvalue="Python.collect_training_data" />
-        <item itemvalue="Python.stream_server_test" />
         <item itemvalue="Python.picam_calibration" />
       </list>
     </recent_temporary>
