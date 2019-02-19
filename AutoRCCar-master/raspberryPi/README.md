@@ -6,4 +6,4 @@ Client programs on Rapsberry Pi did not stray too far from these two great tutor
 
 Additional Notes:
 
-ultrasonicsensor_test.py is not part of the original self driving car package. This should be used when wanting to unit test the ultra sonic sensor with the raspberry pi  
+-ultrasonicsensor_test.py is not part of the original self driving car package. This should be used when wanting to unit test the ultra sonic sensor with the raspberry pi  
