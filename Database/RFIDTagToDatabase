@@ -47,11 +47,12 @@ while continue_reading:
 
     # If we have the UID, continue
     if status == MIFAREReader.MI_OK:
-        counterRow = counterRow + 1
+
         counterColumn = 0
         uids = str(uid[0]) + "," + str(uid[1]) + "," + str(uid[2]) + "," + str(uid[3])
 
         if uids != sheet.cell(counterRow - 1, counterColumn).value:
+            counterRow = counterRow + 1
             sheet.update_cell(counterRow, counterColumn, uids)
         else:
             print("Card duplicate")
