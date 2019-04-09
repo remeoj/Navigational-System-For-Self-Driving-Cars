@@ -28,8 +28,14 @@ def printmap(grid):
         for c in r:
             print(c, end=" ")
         print()
-    print()
 
+def vertdecider(path, routePosX, routePosY):
+  if vertDirection:
+    routePosY = routePosY - 1 #Moves car up grid
+    path.append([routePosX,routePosY])    
+  else:
+    routePosY = routePosY + 1 #Moves car down grid
+    path.append([routePosX,routePosY])
 
 grid = []
 
@@ -37,8 +43,10 @@ createmap(grid)
 printmap(grid)  # Look into displaying this grid visually through python libraries
 
 # Update map for car's position
-car = [7, 1]  # Will eventually be carX = 5 carY = 0
-grid[car[0]][car[1]] = 1
+car = [7, 1]  # Will eventually be carX and carY variables
+carY = car[0] #Rows correspond with the first coordinate
+carX = car[1] #Columns correspond with the second coordinate
+grid[carY][carX] = 1
 printmap(grid)
 
 # Choose destination
@@ -67,6 +75,20 @@ else:
 
 print(distanceX)
 print(horizDirection)
+
+path = []
+routePosX = carX
+routePosY = carY
+while (distanceX > 0) and (distanceY > 0):
+  #Moves car to proper Y direction
+  distanceY = distanceY - 1
+  vertdecider(path, routePosX, routePosY)
+
+  
+
+#Store coordinates of path in 2D array
+#Read off path and mark it down in the grid
+
 # ***Look into creating a single function to generalize booleans for directions, so we can just call the function
 # maybe? Also need to look at making these functions to generalize the process for a second car when added into the
 # code** screen.update() is needed throughout code for tkinter to be used without main loop
