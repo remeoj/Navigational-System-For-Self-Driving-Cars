@@ -1,0 +1,16 @@
+#Hard code for avoiding the center of the grid, but this should never have to be implemented
+grid_center_boolean = (horizontal_pos + 1 == 3 and (vertical_pos == 3 or vertical_pos == 4)) or \
+                      (horizontal_pos + 1 == 4 and (vertical_pos == 3 or vertical_pos == 4))
+if horizDirection:
+    if grid_center_boolean:
+        vert_direction(path1, vertical_pos, horizontal_pos)
+    else:
+        horizontal_pos = horizontal_pos - 1  # Moves car left grid
+        path1.append([vertical_pos, horizontal_pos])
+else:
+    if grid_center_boolean:
+        vert_direction(path1, vertical_pos, horizontal_pos)
+    else:
+        horizontal_pos = horizontal_pos + 1  # Moves car right grid
+        path1.append([vertical_pos, horizontal_pos])
+return horizontal_pos
