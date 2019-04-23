@@ -1,28 +1,58 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
+import RPi.GPIO as GPIO
+import MFRC522
+import signal
+import time
 
 # use creds to create a client to interact with the Google Drive API
-scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('Navi_secret.json', scope)
 client = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
-sheet = client.open("Database Test").sheet2
-counter = 0
-while reading_rfid:
+index = 0
+sheet = client.open("Database").get_worksheet(index)
+counterRow = 2
+continue_reading = True
+
+
+def end_read(signal, frame):
+    global continue_reading
+    print("Ctrl+C captured, ending read.")
+    continue_reading = False
+    GPIO.cleanup()
+
+
+# Hook the SIGINT
+signal.signal(signal.SIGINT, end_read)
+
+# Create an object of the class MFRC522
+MIFAREReader = MFRC522.MFRC522()
+
+print("Welcome to the MFRC522 data read example")
+print("Press Ctrl-C to stop.")
+
+while continue_reading:
 
     (status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
     # If a card is found
     if status == MIFAREReader.MI_OK:
         print("Card detected")
-
     # Get the UID of the card
     (status, uid) = MIFAREReader.MFRC522_Anticoll()
 
     # If we have the UID, continue
     if status == MIFAREReader.MI_OK:
-        counter = counter + 1;
-        worksheet.update_cell(counter, counter, "%s,%s,%s,%s" % uid[0], uid[1], uid[2], uid[3])
+
+        counterColumn = 0
+        uids = str(uid[0]) + "," + str(uid[1]) + "," + str(uid[2]) + "," + str(uid[3])
+
+        if uids != sheet.cell(counterRow - 1, counterColumn).value:
+            counterRow = counterRow + 1
+            sheet.update_cell(counterRow, counterColumn, uids)
+        else:
+            print("Card duplicate")
