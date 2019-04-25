@@ -32,6 +32,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
     # h2: traffic light, measured manually
     h1 = 5.5  # cm
     h2 = 5.5
+    h3 = 5.5
 
     # load trained neural network
     nn = NeuralNetwork()
@@ -43,10 +44,12 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
     # cascade classifiers
     stop_cascade = cv2.CascadeClassifier("cascade_xml/stop_sign.xml")
     light_cascade = cv2.CascadeClassifier("cascade_xml/traffic_light.xml")
+    cone_cascade = cv2.CascadeClassifier("cascade_xml/cascade.xml")
 
     d_to_camera = DistanceToCamera()
     d_stop_sign = 25
     d_light = 25
+    d_cone = 25
 
     stop_start = 0  # start time when stop at the stop sign
     stop_finish = 0
@@ -79,13 +82,16 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                     # object detection
                     v_param1 = self.obj_detection.detect(self.stop_cascade, gray, image)
                     v_param2 = self.obj_detection.detect(self.light_cascade, gray, image)
+                    v_param3 = self.obj_detection.detect(self.cone_cascade, gray, image)
 
                     # distance measurement
-                    if v_param1 > 0 or v_param2 > 0:
+                    if v_param1 > 0 or v_param2 > 0 or v_param3 > 0:
                         d1 = self.d_to_camera.calculate(v_param1, self.h1, 300, image)
                         d2 = self.d_to_camera.calculate(v_param2, self.h2, 100, image)
+                        d3 = self.d_to_camera.calculate(v_param3, self.h3, 100, image)
                         self.d_stop_sign = d1
                         self.d_light = d2
+                        self.d_cone = d3
 
                     cv2.imshow('image', image)
                     # cv2.imshow('mlp_image', roi)
@@ -138,10 +144,15 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                         self.obj_detection.green_light = False
                         self.obj_detection.yellow_light = False
 
+                    elif 0 < self.d_cone < 25:
+                        print("Cone ahead")
+                        self.rc_car.stop()
+
                     else:
                         self.rc_car.steer(prediction)
                         self.stop_start = cv2.getTickCount()
                         self.d_stop_sign = 25
+                        self.d_cone = 25
 
                         if stop_sign_active is False:
                             self.drive_time_after_stop = (self.stop_start - self.stop_finish) / cv2.getTickFrequency()

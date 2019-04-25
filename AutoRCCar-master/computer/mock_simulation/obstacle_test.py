@@ -192,6 +192,7 @@ def move_car(grid1, path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1
         grid1[temp_y_1][temp_x_1] = 4
         print_map(grid1)
         # time.sleep(1)
+    instructions.append(4)
     return instructions
 
 
@@ -434,10 +435,9 @@ end_time = time.time()
 
 for i in range(len(instruction)):
     start_time = time.time()
-    while end_time - start_time < 2:
+    while end_time - start_time < 0.5:
         rc_car.steer(instruction[i])
         end_time = time.time()
-rc_car.stop()
 input("Press Enter to Quit")
 
 '''
