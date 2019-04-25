@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" line="336" />
+    <bookmark url="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" line="414" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af19a758-e79f-47b0-a859-b87f2200bf3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/car2.png" beforeDir="false" afterPath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/car2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,73 +16,80 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="271" column="27" selection-start-line="271" selection-start-column="27" selection-end-line="271" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="426" column="53" selection-start-line="426" selection-start-column="53" selection-end-line="426" selection-end-column="53" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/canvas_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="38" column="66" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="69" />
-                  <folding>
-                    <element signature="e#0#20#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/possible_destination_coords">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1972">
-                  <caret line="434" column="59" selection-start-line="434" selection-start-column="59" selection-end-line="434" selection-end-column="59" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="838">
+              <caret line="519" column="34" lean-forward="true" selection-start-line="519" selection-start-column="34" selection-end-line="519" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="40" column="28" selection-start-line="40" selection-end-line="41" />
+              <folding>
+                <element signature="e#26#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver_helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+              <folding>
+                <element signature="e#26#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="360" selection-start-line="360" selection-end-line="360" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/test/rc_control_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+              <folding>
+                <element signature="e#26#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/canvas_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="38" column="66" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,14 +119,14 @@
         <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/possible_destination_coords" />
         <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/canvas_test.py" />
         <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/mock_simulation_testing_ground.py" />
-        <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" />
         <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py" />
+        <option value="$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="55" />
-    <option name="y" value="133" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1567" />
+    <option name="y" value="-6" />
     <option name="width" value="955" />
     <option name="height" value="568" />
   </component>
@@ -154,14 +160,13 @@
               <item name="Navigational-System-For-Self-Driving-Cars" type="b2602c69:ProjectViewProjectNode" />
               <item name="Navigational-System-For-Self-Driving-Cars" type="462c0819:PsiDirectoryNode" />
               <item name="AutoRCCar-master" type="462c0819:PsiDirectoryNode" />
-              <item name="computer" type="462c0819:PsiDirectoryNode" />
-              <item name="mock_simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="raspberryPi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Navigational-System-For-Self-Driving-Cars" type="b2602c69:ProjectViewProjectNode" />
               <item name="Navigational-System-For-Self-Driving-Cars" type="462c0819:PsiDirectoryNode" />
               <item name="AutoRCCar-master" type="462c0819:PsiDirectoryNode" />
-              <item name="raspberryPi" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Navigational-System-For-Self-Driving-Cars" type="b2602c69:ProjectViewProjectNode" />
@@ -197,7 +202,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.obstacle_test">
+  <component name="RunManager" selected="Python.main_mock_simultation">
     <configuration name="canvas_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Navi1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -326,8 +331,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.obstacle_test" />
         <item itemvalue="Python.main_mock_simultation" />
+        <item itemvalue="Python.obstacle_test" />
         <item itemvalue="Python.mock_simulation_testing_ground" />
         <item itemvalue="Python.canvas_test" />
         <item itemvalue="Python.mock_simultation" />
@@ -357,15 +362,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="100" width="1059" height="683" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1928" y="-6" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32419196" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1743941" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.5" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.2979415" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -478,15 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <folding>
-            <element signature="e#26#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -560,16 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="29" />
-          <folding>
-            <element signature="e#26#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/model_training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -583,16 +568,6 @@
           <caret line="173" column="13" selection-start-line="173" selection-start-column="13" selection-end-line="173" selection-end-column="13" />
           <folding>
             <element signature="e#26#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="271" column="27" selection-start-line="271" selection-start-column="27" selection-end-line="271" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -611,9 +586,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="40" column="28" selection-start-line="40" selection-end-line="41" />
+          <folding>
+            <element signature="e#26#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/rc_driver_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#26#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/test/rc_control_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding>
+            <element signature="e#26#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/canvas_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="629">
           <caret line="38" column="66" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="69" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -623,8 +628,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/obstacle_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="426" column="53" selection-start-line="426" selection-start-column="53" selection-end-line="426" selection-end-column="53" />
+        <state relative-caret-position="413">
+          <caret line="360" selection-start-line="360" selection-end-line="360" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoRCCar-master/computer/mock_simulation/main_mock_simultation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="838">
+          <caret line="519" column="34" lean-forward="true" selection-start-line="519" selection-start-column="34" selection-end-line="519" selection-end-column="34" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

@@ -1,5 +1,7 @@
 import time
 import tkinter as tk
+from rc_driver_helper import *
+from model import NeuralNetwork
 
 
 def create_map(grid1):
@@ -145,11 +147,8 @@ def update_map(path1):
 
 # Function for moving car
 def move_car(grid1, path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1):
-    print(interface.coords(car_one_obj))
-    line_x, line_y = interface.coords(car_one_obj)
-    print(line_x)
-    print(line_y)
     length = len(path1)
+    instructions = []
 
     for i in range(0, length):
         # Creates comparison between past and current values for car 1
@@ -171,20 +170,29 @@ def move_car(grid1, path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1
                 if temp_y_1 != car1[0] and vert_dir_1:
                     interface.move(car_one_obj, 0, -10)
                     interface.update()
+                    if j == 0:
+                        instructions.append(2)
                 elif temp_y_1 != car1[0] and (not vert_dir_1):
                     interface.move(car_one_obj, 0, 10)
                     interface.update()
+                    if j == 0:
+                        instructions.append(2)
                 elif temp_x_1 != car1[1] and horiz_dir_1:
                     interface.move(car_one_obj, -14.25, 0)
                     interface.update()
+                    if j == 0:
+                        instructions.append(0)
                 else:
                     interface.move(car_one_obj, 14.25, 0)
                     interface.update()
+                    if j == 0:
+                        instructions.append(1)
 
         grid1[car1[0]][car1[1]] = 1
         grid1[temp_y_1][temp_x_1] = 4
         print_map(grid1)
         # time.sleep(1)
+    return instructions
 
 
 # Checking for intersection
@@ -302,31 +310,14 @@ def delete_route(path1, car1, interface, car_one_obj, vert_dir_1):
                     interface.update()
 
 
-def starting_point(car, interface):
-    row = car[0]
-    column = car[1]
-    if row == 0:
-        return interface.create_image(55 * column, 20,  fill='black', width=5) #52
-    elif row == 6:
-        return interface.create_image(55 * column, 265,  fill='black', width=5) #275
-    elif row == 1 and column == 1:
-        return interface.create_image(20, 63, image=image)
-    elif row == 5 and column == 1:
-        return interface.create_image(20, 220, image=image)
-    elif row == 1 and column == 6:
-        return interface.create_image(330, 70, image=image)
-    elif row == 5 and column == 6:
-        return interface.create_image(330, 220, image=image)
-
-
 def draw_initial_car(interface, row, column, image):
     if row == 0:
         return interface.create_image(55 * column, 20, image=image) #52
     elif row == 6:
         return interface.create_image(55 * column, 265, image=image) #275
-    elif row == 1 and column == 1:
+    elif row == 1 and column == 0:
         return interface.create_image(20, 63, image=image)
-    elif row == 5 and column == 1:
+    elif row == 5 and column == 0:
         return interface.create_image(20, 220, image=image)
     elif row == 1 and column == 6:
         return interface.create_image(330, 70, image=image)
@@ -434,8 +425,19 @@ update_map(path_1)
 print_map(grid)
 # draw_route(path_1, car_1, canvas, car_img, vertDirection1)
 # Need to move car through grid
-move_car(grid, path_1, car_1, canvas, car_img, vertDirection1, horizDirection1)
+instruction = []
+instruction = move_car(grid, path_1, car_1, canvas, car_img, vertDirection1, horizDirection1)
+print(instruction)
+rc_car = RCControl("COM5")
+start_time = time.time()
+end_time = time.time()
 
+for i in range(len(instruction)):
+    start_time = time.time()
+    while end_time - start_time < 2:
+        rc_car.steer(instruction[i])
+        end_time = time.time()
+rc_car.stop()
 input("Press Enter to Quit")
 
 '''

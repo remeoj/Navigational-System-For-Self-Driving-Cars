@@ -53,10 +53,11 @@ def horiz_direction(path1, vertical_pos, horizontal_pos, horizDirection):
 
 # Function to create path for car
 def car_path(car_x, car_y, grid_var, distance_y, distance_x, intersection_bool,
-             vertDirection, horizDirection):
+             vertDirection, horizDirection, destination):
     path = []
     route_pos_x = car_x
     route_pos_y = car_y
+    destination_y = destination[0]
 
     # The following lines create the path that the car is going to traverse
     # Initial movement from starting place
@@ -68,8 +69,9 @@ def car_path(car_x, car_y, grid_var, distance_y, distance_x, intersection_bool,
         distance_x = distance_x - 1
 
     # Following movements of the car after starting place
-    if destinationY == 0 or destinationY == len(grid_var) - 1:  # In this case, the destination is either at the top or bottom of the grid
+    if destination_y == 0 or destination_y == len(grid_var) - 1:  # In this case, the destination is either at the top or bottom of the grid
         while distance_x > 0 or distance_y > 1:
+
             if intersection_bool:
                 # Moves car to proper X direction
                 if distance_x > 0:
@@ -83,6 +85,7 @@ def car_path(car_x, car_y, grid_var, distance_y, distance_x, intersection_bool,
                     continue
             else:
                 # Moves car to proper Y direction
+
                 if distance_y > 1:
                     distance_y = distance_y - 1
                     route_pos_y = vert_direction(path, route_pos_y, route_pos_x, vertDirection)
@@ -196,7 +199,7 @@ def move_car(grid1, path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1
 
 
 # Checking for intersection
-def check_for_intersection(path1, path2):
+def check_for_intersection(path_1, path_2):
     test_intersection_check = False
     # Detects which path is shorter and grabs the length of the shortest path
     if len(path_1) <= len(path_2):
@@ -223,17 +226,20 @@ def create_ui(interface, x_val_1, x_val2, dynamic_y1, dynamic_y2):
 
 # Function for drawing route on GUI
 def draw_route(path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1, path2, car2, car_two_obj, vert_dir_2, horiz_dir_2):
-
     # Sets the for loop to be the longest path length
     if len(path1) < len(path2):
         length = len(path2)
     else:
         length = len(path1)
 
-    #Finding initial X and Y coordinates in pixel form on GUI
-    #row = car1[0]
-    #column = car[1]
-
+    # Variables to reset car's state
+    initial_state_y_1 = car1[0]
+    initial_state_x_1 = car1[1]
+    initial_state_y_2 = car2[0]
+    initial_state_x_2 = car2[1]
+    # Grabs starting coordinates for line
+    line_x_1, line_y_1 = interface.coords(car_one_obj)
+    line_x_2, line_y_2 = interface.coords(car_two_obj)
     for i in range(0, length):
         # Creates comparison between past and current values for car 1
         if i < len(path1):
@@ -250,65 +256,137 @@ def draw_route(path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1, pat
             car2[1] = path2[i][1]
 
         # Code altered from moving car code to fit drawing a path that the car would drive on
-        #line_coord_x =
         for j in range(4):
             time.sleep(0.05)
             # Moves car 1
             if i < len(path1):
                 if temp_y_1 != car1[0] and vert_dir_1:
-                    interface.move(car_one_obj, 0, -10)
+                    interface.create_line(line_x_1, line_y_1, line_x_1, line_y_1 - 12, width=5, fill='red')
+                    line_y_1 = line_y_1 - 10
                     interface.update()
                 elif temp_y_1 != car1[0] and (not vert_dir_1):
-                    interface.move(car_one_obj, 0, 10)
+                    interface.create_line(line_x_1, line_y_1, line_x_1, line_y_1 + 13, width=5, fill='red')
+                    line_y_1 = line_y_1 + 10
                     interface.update()
                 elif temp_x_1 != car1[1] and horiz_dir_1:
-                    interface.move(car_one_obj, -14.25, 0)
+                    interface.create_line(line_x_1, line_y_1, line_x_1 - 16.25, line_y_1, width=5, fill='red')
+                    line_x_1 = line_x_1 - 14.25
                     interface.update()
                 else:
-                    interface.move(car_one_obj, 14.25, 0)
+                    interface.create_line(line_x_1, line_y_1, line_x_1 + 17.25, line_y_1, width=5, fill='red')
+                    line_x_1 = line_x_1 + 14.25
                     interface.update()
 
             # Moves car 2
             if i < len(path2):
                 if temp_y_2 != car2[0] and vert_dir_2:
-                    interface.move(car_two_obj, 0, -10)
+                    interface.create_line(line_x_2, line_y_2, line_x_2, line_y_2 - 12, width=5, fill='blue')
+                    line_y_2 = line_y_2 - 10
                     interface.update()
                 elif temp_y_2 != car2[0] and (not vert_dir_2):
-                    interface.move(car_two_obj, 0, 10)
+                    interface.create_line(line_x_2, line_y_2, line_x_2, line_y_2 + 13, width=5, fill='blue')
+                    line_y_2 = line_y_2 + 10
                     interface.update()
                 elif temp_x_2 != car2[1] and horiz_dir_2:
-                    interface.move(car_two_obj, -14.25, 0)
+                    interface.create_line(line_x_2, line_y_2, line_x_2 - 16.25, line_y_2, width=5, fill='blue')
+                    line_x_2 = line_x_2 - 14.25
                     interface.update()
                 else:
-                    interface.move(car_two_obj, 14.25, 0)
+                    interface.create_line(line_x_2, line_y_2, line_x_2 + 17.25, line_y_2, width=5, fill='blue')
+                    line_x_2 = line_x_2 + 14.25
+                    interface.update()
+    car1[0] = initial_state_y_1
+    car1[1] = initial_state_x_1
+    car2[0] = initial_state_y_2
+    car2[1] = initial_state_x_2
+
+
+def delete_route(path1, car1, interface, car_one_obj, vert_dir_1, horiz_dir_1, path2, car2, car_two_obj, vert_dir_2,
+                 horiz_dir_2):
+
+    # Sets the for loop to be the longest path length
+    if len(path1) < len(path2):
+        length = len(path2)
+    else:
+        length = len(path1)
+
+    # Variables to reset car's state
+    initial_state_y_1 = car1[0]
+    initial_state_x_1 = car1[1]
+    initial_state_y_2 = car2[0]
+    initial_state_x_2 = car2[1]
+
+    # Grabs starting coordinates for line
+    line_x_1, line_y_1 = interface.coords(car_one_obj)
+    line_x_2, line_y_2 = interface.coords(car_two_obj)
+    for i in range(0, length):
+        # Creates comparison between past and current values for car 1
+        if i < len(path1):
+            temp_y_1 = car1[0]
+            temp_x_1 = car1[1]
+            car1[0] = path1[i][0]
+            car1[1] = path1[i][1]
+
+        # Creates comparison between past and current values for car 2
+        if i < len(path2):
+            temp_y_2 = car2[0]
+            temp_x_2 = car2[1]
+            car2[0] = path2[i][0]
+            car2[1] = path2[i][1]
+
+        # Code altered from moving car code to fit drawing a path that the car would drive on
+        for j in range(4):
+            time.sleep(0.05)
+            # Moves car 1
+            if i < len(path1):
+                if temp_y_1 != car1[0] and vert_dir_1:
+                    interface.create_line(line_x_1, line_y_1, line_x_1, line_y_1 - 12, width=5, fill='#f0f0f0')
+                    line_y_1 = line_y_1 - 10
+                    interface.update()
+                elif temp_y_1 != car1[0] and (not vert_dir_1):
+                    interface.create_line(line_x_1, line_y_1, line_x_1, line_y_1 + 13, width=5, fill='#f0f0f0')
+                    line_y_1 = line_y_1 + 10
+                    interface.update()
+                elif temp_x_1 != car1[1] and horiz_dir_1:
+                    interface.create_line(line_x_1, line_y_1, line_x_1 - 16.25, line_y_1, width=5, fill='#f0f0f0')
+                    line_x_1 = line_x_1 - 14.25
+                    interface.update()
+                else:
+                    interface.create_line(line_x_1, line_y_1, line_x_1 + 17.25, line_y_1, width=5, fill='#f0f0f0')
+                    line_x_1 = line_x_1 + 14.25
                     interface.update()
 
-
-def grid_to_pixel_conversion(car, interface):
-    row = car[0]
-    column = car[1]
-    if row == 0:
-        return interface.create_image(55 * column, 20, image=image) #52
-    elif row == 6:
-        return interface.create_image(55 * column, 265, image=image) #275
-    elif row == 1 and column == 1:
-        return interface.create_image(20, 63, image=image)
-    elif row == 5 and column == 1:
-        return interface.create_image(20, 220, image=image)
-    elif row == 1 and column == 6:
-        return interface.create_image(330, 70, image=image)
-    elif row == 5 and column == 6:
-        return interface.create_image(330, 220, image=image)
-
+            # Moves car 2
+            if i < len(path2):
+                if temp_y_2 != car2[0] and vert_dir_2:
+                    interface.create_line(line_x_2, line_y_2, line_x_2, line_y_2 - 12, width=5, fill='#f0f0f0')
+                    line_y_2 = line_y_2 - 10
+                    interface.update()
+                elif temp_y_2 != car2[0] and (not vert_dir_2):
+                    interface.create_line(line_x_2, line_y_2, line_x_2, line_y_2 + 13, width=5, fill='#f0f0f0')
+                    line_y_2 = line_y_2 + 10
+                    interface.update()
+                elif temp_x_2 != car2[1] and horiz_dir_2:
+                    interface.create_line(line_x_2, line_y_2, line_x_2 - 16.25, line_y_2, width=5, fill='#f0f0f0')
+                    line_x_2 = line_x_2 - 14.25
+                    interface.update()
+                else:
+                    interface.create_line(line_x_2, line_y_2, line_x_2 + 17.25, line_y_2, width=5, fill='#f0f0f0')
+                    line_x_2 = line_x_2 + 14.25
+                    interface.update()
+    car1[0] = initial_state_y_1
+    car1[1] = initial_state_x_1
+    car2[0] = initial_state_y_2
+    car2[1] = initial_state_x_2
 
 def draw_initial_car(interface, row, column, image):
     if row == 0:
         return interface.create_image(55 * column, 20, image=image) #52
     elif row == 6:
         return interface.create_image(55 * column, 265, image=image) #275
-    elif row == 1 and column == 1:
+    elif row == 1 and column == 0:
         return interface.create_image(20, 63, image=image)
-    elif row == 5 and column == 1:
+    elif row == 5 and column == 0:
         return interface.create_image(20, 220, image=image)
     elif row == 1 and column == 6:
         return interface.create_image(330, 70, image=image)
@@ -380,11 +458,8 @@ else:
 # print(horizDirection)
 
 # Initializes path routing
-path_1 = car_path(carX, carY, grid, distanceY, distanceX, intersection_check, vertDirection1, horizDirection1)
+path_1 = car_path(carX, carY, grid, distanceY, distanceX, intersection_check, vertDirection1, horizDirection1, destination)
 
-# Initializing second map for second car
-#grid2 = []
-#create_map(grid2)
 filename2 = tk.PhotoImage(file="car2.png")
 filename2 = filename2.subsample(5, 5)
 car_2 = [int(input("Car's Starting Y Position: ")), int(input("Car's Starting X Position: "))]
@@ -422,35 +497,38 @@ if distanceX_car2 < 0:
 else:
     horizDirection2 = False  # Car needs to drive right
 
-path_2 = car_path(car2_X, car2_Y, grid, distanceY_car2, distanceX_car2, intersection_check, vertDirection2, horizDirection2)
+path_2 = car_path(car2_X, car2_Y, grid, distanceY_car2, distanceX_car2, intersection_check, vertDirection2, horizDirection2, destination_2)
 print("Paths 1 and 2 Before Check")
 print(path_1)
 print(path_2)
-
+draw_route(path_1, car_1, canvas, car_img, vertDirection1, horizDirection1, path_2, car_2, car_img_2, vertDirection2, horizDirection2)
 intersection_check = check_for_intersection(path_1, path_2)
 
 # If there's an intersection, create new path with reverse pattern algorithm
 if intersection_check:
-    test_path_2 = car_path(car2_X, car2_Y, grid, distanceY_car2, distanceX_car2, intersection_check, vertDirection2, horizDirection2)
+    delete_route(path_1, car_1, canvas, car_img, vertDirection1, horizDirection1, path_2, car_2, car_img_2,
+                 vertDirection2, horizDirection2)
+    test_path_2 = car_path(car2_X, car2_Y, grid, distanceY_car2, distanceX_car2, intersection_check, vertDirection2, horizDirection2, destination_2)
+    print("Paths 1 and 2 After Check")
+    print(path_1)
+    print(test_path_2)
 
-print("Paths 1 and 2 After Check")
-print(path_1)
-print(test_path_2)
-
-intersection_check = check_for_intersection(path_1, test_path_2)
-if intersection_check:
-    path_1 = car_path(carX, carY, grid, distanceY, distanceX, intersection_check, vertDirection1, horizDirection1)
-else:
+# Second check for if there's still an intersection and if there is, then change car 1's path instead of car 2's
+intersection_check2 = check_for_intersection(path_1, test_path_2)
+if intersection_check2:
+    path_1 = car_path(carX, carY, grid, distanceY, distanceX, intersection_check, vertDirection1, horizDirection1, destination)
+    print("Paths 1 and 2 After Second Check")
+    print(path_1)
+    print(path_2)
+elif intersection_check:
     path_2 = test_path_2
 
-print("Paths 1 and 2 After Second Check")
-print(path_1)
-print(test_path_2)
-# Store coordinates of path in 2D array - Done above
 # Read off path and mark it down in the grid
 update_map(path_1)
 print_map(grid)
 
+draw_route(path_1, car_1, canvas, car_img, vertDirection1, horizDirection1, path_2, car_2, car_img_2, vertDirection2,
+           horizDirection2)
 
 # Need to move car through grid
 move_car(grid, path_1, car_1, canvas, car_img, vertDirection1, horizDirection1,
